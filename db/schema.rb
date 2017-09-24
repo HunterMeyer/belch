@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923235114) do
+ActiveRecord::Schema.define(version: 20170924000336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,31 @@ ActiveRecord::Schema.define(version: 20170923235114) do
     t.text     "brewery_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "brewerydb_breweries", force: :cascade do |t|
+    t.text     "external_id"
+    t.text     "name"
+    t.text     "name_short_display"
+    t.text     "description"
+    t.text     "website"
+    t.text     "is_organic"
+    t.text     "status"
+    t.text     "street_address"
+    t.text     "locality"
+    t.text     "region"
+    t.text     "postal_code"
+    t.text     "phone"
+    t.text     "latitude"
+    t.text     "longitude"
+    t.text     "is_closed"
+    t.text     "is_primary"
+    t.text     "open_to_public"
+    t.text     "location_type"
+    t.text     "location_type_display"
+    t.text     "country_iso_code"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end
