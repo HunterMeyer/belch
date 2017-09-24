@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924003135) do
+ActiveRecord::Schema.define(version: 20170924003439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,25 @@ ActiveRecord::Schema.define(version: 20170924003135) do
   create_table "brewerydb_glasswares", force: :cascade do |t|
     t.text     "external_id"
     t.text     "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "brewerydb_styles", force: :cascade do |t|
+    t.text     "external_id"
+    t.text     "category_id"
+    t.text     "name"
+    t.text     "short_name"
+    t.text     "description"
+    t.text     "ibu_min"
+    t.text     "ibu_max"
+    t.text     "abv_min"
+    t.text     "abv_max"
+    t.text     "srm_min"
+    t.text     "srm_max"
+    t.text     "og_min"
+    t.text     "fg_min"
+    t.text     "fg_max"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
