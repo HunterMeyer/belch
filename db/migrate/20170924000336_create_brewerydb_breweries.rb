@@ -21,6 +21,8 @@ class CreateBrewerydbBreweries < ActiveRecord::Migration[5.0]
       t.text :location_type
       t.text :location_type_display
       t.text :country_iso_code
+      t.text :update_date
+      t.text :create_date
 
       t.timestamps
     end

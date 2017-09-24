@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20170924000336) do
     t.text     "location_type"
     t.text     "location_type_display"
     t.text     "country_iso_code"
+    t.text     "update_date"
+    t.text     "create_date"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
