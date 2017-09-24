@@ -41,22 +41,22 @@ class BrewerydbCollector
             end
 
             if beer['glasswareId'].present? && @glass.find { |glass| glass['id'] == beer['glasswareId'] }.blank?
-              @glass << beer['glass'].slice(*%w(id name))
+              @glass << beer['glass'].slice(*%w(id name createDate))
             end
 
             if beer['styleId'].present? && @styles.find { |style| style['id'] == beer['styleId'] }.blank?
-              @styles << beer['style'].slice(*%w(id categoryId name shortName description ibuMin ibuMax abvMin abvMax srmMin srmMax ogMin fgMin fgMax))
+              @styles << beer['style'].slice(*%w(id categoryId name shortName description ibuMin ibuMax abvMin abvMax srmMin srmMax ogMin fgMin fgMax createDate))
             end
 
             if beer['style'].present? && @cats.find { |cat| cat['id'] == beer['style']['categoryId'] }.blank?
-              @cats << beer['style']['category'].slice(*%w(id name))
+              @cats << beer['style']['category'].slice(*%w(id name createDate))
             end
 
             if beer['breweries'].present?
               brewery = beer['breweries'].first
               beer_to_record.merge!('breweryId' => brewery['id'])
               if @breweries.find { |brew| brew['id'] == brewery['id'] }.blank?
-                company = brewery.slice(*%w(id name nameShortDisplay description website isOrganic status))
+                company = brewery.slice(*%w(id name nameShortDisplay description website isOrganic status createDate updateDate established))
                 if brewery['locations'].present?
                   location = brewery['locations'].find { |loc| loc['isPrimary'] == 'Y' } || brewery['locations'].first
                   location = location.slice(*%w(streetAddress established locality region postalCode phone latitude longitude isClosed isPrimary openToPublic locationType locationTypeDisplay countryIsoCode))
