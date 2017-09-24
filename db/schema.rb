@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924003439) do
+ActiveRecord::Schema.define(version: 20170924004009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,38 @@ ActiveRecord::Schema.define(version: 20170924003439) do
     t.text     "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "brewerydb_locations", force: :cascade do |t|
+    t.text     "external_id"
+    t.text     "name"
+    t.text     "street_address"
+    t.text     "extended_address"
+    t.text     "locality"
+    t.text     "region"
+    t.text     "postal_code"
+    t.text     "phone"
+    t.text     "website"
+    t.text     "hours_of_operation"
+    t.text     "hours_of_operation_explicit"
+    t.text     "hours_of_operation_notes"
+    t.text     "tour_info"
+    t.text     "timezone_id"
+    t.text     "latitude"
+    t.text     "longitude"
+    t.text     "is_primary"
+    t.text     "in_planning"
+    t.text     "is_closed"
+    t.text     "open_to_public"
+    t.text     "location_type"
+    t.text     "location_type_display"
+    t.text     "country_iso_code"
+    t.text     "year_opened"
+    t.text     "brewery_id"
+    t.text     "status"
+    t.text     "update_date"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "brewerydb_styles", force: :cascade do |t|
