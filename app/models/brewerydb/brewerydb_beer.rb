@@ -2,8 +2,12 @@ require 'csv_loader'
 
 class BrewerydbBeer < ApplicationRecord
   extend CsvLoader
+  belongs_to :availability, primary_key: :external_id, foreign_key: :available_id, class_name: BrewerydbAvailability.name
+  belongs_to :brewery,      primary_key: :external_id, class_name: BrewerydbBrewery.name
+  belongs_to :glassware,    primary_key: :external_id, class_name: BrewerydbGlassware.name
+  belongs_to :style,        primary_key: :external_id, class_name: BrewerydbStyle.name
 
-  def self.mappings # them => us
+  def self.mappings
     {
       'id' =>                        :external_id,
       'name' =>                      :name,

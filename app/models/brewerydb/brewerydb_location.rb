@@ -2,6 +2,7 @@ require 'csv_loader'
 
 class BrewerydbLocation < ApplicationRecord
   extend CsvLoader
+  belongs_to :brewery, primary_key: :external_id, class_name: BrewerydbBrewery.name
 
   def self.mappings
     {
