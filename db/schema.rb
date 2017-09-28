@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924004009) do
+ActiveRecord::Schema.define(version: 20170928002519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,12 @@ ActiveRecord::Schema.define(version: 20170924004009) do
     t.text     "fg_max"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "trainers", force: :cascade do |t|
+    t.text     "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
