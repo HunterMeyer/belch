@@ -1,0 +1,6 @@
+<%= form_for @trainer do |f| %>
+  <%= f.label      :identifier %>
+  <small>Something unique, your name, email, etc.</small>
+  <%= f.text_field :identifier, required: true, autofocus: true %>
+  <%= f.submit %>
+<% end %>
