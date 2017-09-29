@@ -1,4 +1,14 @@
 class TrainersController < ApplicationController
+  def find
+    @trainer = Trainer.find_by(identifier: params[:identifier])
+    if @trainer
+      redirect_to trainer_path(@trainer.id)
+    else
+      @error = 'Does not exists...'
+      render :new
+    end
+  end
+
   def show
     current_trainer
   end
