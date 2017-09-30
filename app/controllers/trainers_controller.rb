@@ -39,7 +39,7 @@ class TrainersController < ApplicationController
       beer_external_id: params[:beer_id],
       rating:           params[:rating]
     }
-    @rating = TrainerRating.create(options)
+    @rating = TrainerBeerRating.create(options)
     render json: :ok
   end
 

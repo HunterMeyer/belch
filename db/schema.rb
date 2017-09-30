@@ -139,14 +139,14 @@ ActiveRecord::Schema.define(version: 20170928002848) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "trainer_ratings", force: :cascade do |t|
+  create_table "trainer_beer_ratings", force: :cascade do |t|
     t.text     "beer_external_id"
     t.integer  "trainer_id"
     t.integer  "rating"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["beer_external_id"], name: "index_trainer_ratings_on_beer_external_id", using: :btree
-    t.index ["trainer_id"], name: "index_trainer_ratings_on_trainer_id", using: :btree
+    t.index ["beer_external_id"], name: "index_trainer_beer_ratings_on_beer_external_id", using: :btree
+    t.index ["trainer_id"], name: "index_trainer_beer_ratings_on_trainer_id", using: :btree
   end
 
   create_table "trainers", force: :cascade do |t|
