@@ -11,6 +11,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'awesome_print'
 gem 'remote_table'
+gem 'jquery-rails'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
 # gem 'elasticsearch-model'
 # gem 'httparty'
 # gem 'fog', '~>1.20', require: 'fog/aws/storage'
@@ -24,7 +27,6 @@ end
 
 group :development, :test do
   gem 'pry'
-  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -33,4 +35,5 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end

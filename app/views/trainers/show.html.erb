@@ -1,0 +1,53 @@
+<h2 style="margin-bottom:0;"><%= @trainer.identifier %></h2>
+<h6><span class="js-rating-count" data-bind="text: ratingCount" data-init-value="<%= @trainer.ratings.count %>"></span> Ratings</h6>
+
+<section class="columns" style="height: 500px;">
+  <div class="column col-12 text-center centered">
+    <span data-bind="visible: !paused()">
+      <span data-bind="foreach: unratedBeers">
+        <div class="card beer-item" data-bind="css: cssClass, visible: visible">
+          <div class="card-image">
+            <img class="img-responsive" data-bind="attr: { src: icon }">
+          </div>
+          <div class="card-header">
+            <div class="card-title h5" data-bind="text: name"></div>
+            <div class="card-subtitle" data-bind="text: breweryName"></div>
+          </div>
+        </div>
+      </span>
+    </span>
+  </div>
+</section>
+
+<section class="columns">
+  <div class="column col-12 centered text-center">
+    <a data-bind="click: dislike" class="btn btn-action btn-red btn-xl circle" title="Dislike"><i class="icon icon-arrow-left"></i></a>
+    <a data-bind="click: pass" class="btn btn-action btn-gray btn-xl circle" title="Pass"><i class="icon icon-more-horiz"></i></a>
+    <a data-bind="click: like" class="btn btn-action btn-green btn-xl circle" title="Like"><i class="icon icon-arrow-right"></i></a>
+    <div class="keyboard-labels">
+      Keyboard: Dislike (left-arrow), Pass (up-arrow), Like (right-arrow)
+    </div>
+  </div>
+</section>
+
+<%= javascript_include_tag 'beer_list_view_model', 'beer_item' %>
+
+<script>
+  var ratingCount = $('.js-rating-count').data('init-value');
+  var vm = new BeerListViewModel({ ratingCount: ratingCount }).init();
+  ko.applyBindings(vm);
+  document.addEventListener('keydown', function(event) {
+    switch (event.which) {
+      case 32: // space
+      case 38: // up-arrow
+        vm.rateBeer(0);
+        break;
+      case 37: // left-arrow
+        vm.rateBeer(-1);
+        break;
+      case 39: // right-arrow
+        vm.rateBeer(1);
+        break;
+    }
+  });
+</script>

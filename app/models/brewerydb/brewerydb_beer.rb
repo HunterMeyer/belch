@@ -30,4 +30,11 @@ class BrewerydbBeer < ApplicationRecord
       'breweryId' =>                 :brewery_id
     }
   end
+
+  def self.set_brewery_name
+    where('brewery_name IS NULL').joins(:brewery).each do |beer|
+      next if beer.brewery.name.blank?
+      beer.update(brewery_name: beer.brewery.name.presence)
+    end
+  end
 end

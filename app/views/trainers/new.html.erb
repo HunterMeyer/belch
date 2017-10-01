@@ -1,0 +1,13 @@
+<h3>Sign Up</h3>
+<%= form_for @trainer do |f| %>
+  <%= f.label      :identifier, class: 'form-label' %>
+  <%= f.text_field :identifier, required: true, autofocus: true, placeholder: 'Something unique, your name, email, etc.', class: 'form-input' %>
+  <%= f.submit 'Sign Up', class: 'btn mt-5' %>
+<% end %>
+<br><br>
+<h3>Sign In</h3>
+<%= form_tag find_trainers_path, method: :get do %>
+  <%= label_tag :identifier, 'Identifier', class: 'form-label' %>
+  <%= text_field_tag :identifier, params[:identifier], class: 'form-input', placeholder: 'Your identifier', required: true %>
+  <%= submit_tag 'Sign In', class: 'btn mt-5' %>
+<% end %>
