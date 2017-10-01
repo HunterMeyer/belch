@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :trainers, only: [:new, :create, :show] do
     get :find, on: :collection
     member do
-      get :beers,   defaults: { format: :json }
-      post :rating, defaults: { format: :json }
+      get  :unrated_beers, defaults: { format: :json }
+      post :rate_beer,     defaults: { format: :json }
     end
   end
 end

@@ -1,4 +1,6 @@
 class TrainersController < ApplicationController
+  BEERS_PER_PAGE = 10
+
   def find
     @trainer = Trainer.find_by(identifier: params[:identifier])
     if @trainer
@@ -27,16 +29,17 @@ class TrainersController < ApplicationController
     end
   end
 
-  def beers
-    offset = params[:page].to_i * 20
-    @beers = current_trainer.unrated_beers.limit(20).offset(offset)
+  def unrated_beers
+    offset = params[:page].to_i * BEERS_PER_PAGE
+    @beers = current_trainer.unrated_beers.limit(BEERS_PER_PAGE).offset(offset)
+                            .select(:external_id, :name, :brewery_name, :icon)
     render json: @beers
   end
 
-  def rating
+  def rate_beer
     options = {
       trainer:          current_trainer,
-      beer_external_id: params[:beer_id],
+      beer_external_id: params[:beer_external_id],
       rating:           params[:rating]
     }
     @rating = TrainerBeerRating.create(options)

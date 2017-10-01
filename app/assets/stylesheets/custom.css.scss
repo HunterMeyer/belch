@@ -1,0 +1,51 @@
+html { min-height: 100% }
+body { background: #f4f4f4; }
+
+.card.beer-item {
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px 5px #d4d4d4;
+  display: inline-block;
+  max-width: 380px;
+  position: absolute;
+  width: 100%;
+  &.animated { z-index: 1000; }
+  .card-image img { height: 398px; }
+}
+
+.btn.btn-action.btn-xl {
+  width: 6rem;
+  height: 6rem;
+  padding: 1.6rem 1.8rem;
+  font-size: 2.5rem;
+  margin: 0 .5rem 0 .5rem;
+}
+
+.btn-green {
+  color: #32b643;
+  border-color: #32b643;
+  &:hover, &:focus, &:active {
+    color: #fff;
+    background: #32b643;
+    border-color: #32b643;
+  }
+}
+
+.btn-red {
+  color: #e85600;
+  border-color: #e85600;
+  &:hover, &:focus, &:active {
+    color: #fff;
+    background: #e85600;
+    border-color: #e85600;
+  }
+}
+
+.btn-gray {
+  color: #9a9a9a;
+  border-color: #9a9a9a;
+  &:hover, &:focus, &:active {
+    color: #fff;
+    background: #9a9a9a;
+    border-color: #9a9a9a;
+  }
+}
