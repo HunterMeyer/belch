@@ -1,5 +1,5 @@
 class TrainersController < ApplicationController
-  BEERS_PER_PAGE = 10
+  BEERS_PER_PAGE = 50
 
   def find
     @trainer = Trainer.find_by(identifier: params[:identifier])
