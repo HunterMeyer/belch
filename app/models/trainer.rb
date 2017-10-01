@@ -3,10 +3,7 @@ class Trainer < ApplicationRecord
   has_many  :ratings, class_name: TrainerBeerRating.name
 
   def unrated_beers
-    if ratings.blank?
-      BrewerydbBeer
-    else
-      BrewerydbBeer.where('external_id NOT IN (?)', ratings.map(&:beer_external_id))
-    end
+    return BrewerydbBeer if ratings.blank?
+    BrewerydbBeer.where('external_id NOT IN (?)', ratings.map(&:beer_external_id))
   end
 end
