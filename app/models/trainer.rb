@@ -3,7 +3,11 @@ class Trainer < ApplicationRecord
   has_many  :ratings, class_name: TrainerBeerRating.name
 
   def unrated_beers
-    return BrewerydbBeer if ratings.blank?
-    BrewerydbBeer.where('external_id NOT IN (?)', ratings.map(&:beer_external_id))
+    order = 'brewerydb_breweries.location_type, brewerydb_breweries.name'
+    beers = BrewerydbBeer.joins(:brewery).order(order)
+                         .where(brewerydb_breweries: { location_type: %w[micro macro] })
+                         .where('icon != ?', '')
+    return beers if ratings.blank?
+    beers.where('brewerydb_beers.external_id NOT IN (?)', ratings.map(&:beer_external_id))
   end
 end
