@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'paperclip'
 
 group :production do
-  gem 'heroku_rails_deflate'
+  # gem 'heroku_rails_deflate'
   gem 'rails_12factor'
 end
 
