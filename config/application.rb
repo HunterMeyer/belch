@@ -9,8 +9,8 @@ require 'action_controller/railtie'
 require 'action_mailer/railtie'
 require 'action_view/railtie'
 require 'action_cable/engine'
-# require 'sprockets/railtie'
-# require 'rails/test_unit/railtie'
+require 'sprockets/railtie'
+
 Dir[File.dirname(__FILE__) + '/../lib/extensions/*.rb'].each { |file| require file }
 
 # Require the gems listed in Gemfile, including any gems
