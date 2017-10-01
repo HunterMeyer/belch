@@ -2,7 +2,7 @@
 <h6><span class="js-rating-count" data-bind="text: ratingCount" data-init-value="<%= @trainer.ratings.count %>"></span> Ratings</h6>
 
 <section class="columns" style="height: 500px;">
-  <div class="column col-4 col-md-5 col-sm-12 centered">
+  <div class="column col-12 text-center centered">
     <span data-bind="visible: !paused()">
       <span data-bind="foreach: unratedBeers">
         <div class="card beer-item" data-bind="css: cssClass, visible: visible">
@@ -11,7 +11,7 @@
           </div>
           <div class="card-header">
             <div class="card-title h5" data-bind="text: name"></div>
-            <div class="card-subtitle text-gray" data-bind="text: breweryName"></div>
+            <div class="card-subtitle" data-bind="text: breweryName"></div>
           </div>
         </div>
       </span>
@@ -24,6 +24,9 @@
     <a data-bind="click: dislike" class="btn btn-action btn-red btn-xl circle" title="Dislike"><i class="icon icon-arrow-left"></i></a>
     <a data-bind="click: pass" class="btn btn-action btn-gray btn-xl circle" title="Pass"><i class="icon icon-more-horiz"></i></a>
     <a data-bind="click: like" class="btn btn-action btn-green btn-xl circle" title="Like"><i class="icon icon-arrow-right"></i></a>
+    <div class="keyboard-labels">
+      Keyboard: Dislike (left-arrow), Pass (up-arrow), Like (right-arrow)
+    </div>
   </div>
 </section>
 
