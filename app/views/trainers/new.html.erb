@@ -8,8 +8,8 @@
         <%= form_for @trainer do |f| %>
           <label class="form-label">First Initial and Last Name</label>
           <div class="input-group">
-            <%= f.text_field :identifier, required: true, autofocus: true, placeholder: 'ex: hmeyer', class: 'form-input' %>
-            <%= button_tag type: :submit, class: 'btn btn-primary input-group-btn' do %>
+            <%= f.text_field :identifier, required: true, autofocus: true, placeholder: 'ex: hmeyer', class: 'form-input input-lg' %>
+            <%= button_tag type: :submit, class: 'btn btn-primary input-group-btn btn-lg' do %>
               <i class="icon icon-check"></i> Sign In
             <% end %>
           </div>
