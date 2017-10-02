@@ -10,7 +10,7 @@ class TrainersController < ApplicationController
   end
 
   def create
-    @trainer = Trainer.find_or_create_by(identifier: params[:trainer][:identifier])
+    @trainer = Trainer.find_or_create_by(identifier: params[:trainer][:identifier].downcase)
     if @trainer.save
       redirect_to trainer_path(@trainer.id)
     else
