@@ -1,5 +1,6 @@
 class TrainersController < ApplicationController
   BEERS_PER_PAGE = 50
+  skip_before_action :verify_authenticity_token
 
   def show
     @ratings = current_trainer.ratings.count
