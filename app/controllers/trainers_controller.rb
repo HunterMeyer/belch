@@ -1,16 +1,6 @@
 class TrainersController < ApplicationController
   BEERS_PER_PAGE = 50
 
-  def find
-    @trainer = Trainer.find_by(identifier: params[:identifier])
-    if @trainer
-      redirect_to trainer_path(@trainer.id)
-    else
-      @error = 'Does not exists...'
-      render :new
-    end
-  end
-
   def show
     current_trainer
   end
@@ -20,7 +10,7 @@ class TrainersController < ApplicationController
   end
 
   def create
-    @trainer = Trainer.create(trainer_params)
+    @trainer = Trainer.find_or_create_by(identifier: params[:trainer][:identifier])
     if @trainer.save
       redirect_to trainer_path(@trainer.id)
     else
@@ -47,10 +37,6 @@ class TrainersController < ApplicationController
   end
 
   private
-
-  def trainer_params
-    params.require(:trainer).permit(:identifier)
-  end
 
   def current_trainer
     @trainer ||= Trainer.find(params[:id])
