@@ -10,6 +10,7 @@ class Trainer < ApplicationRecord
     beers = BrewerydbBeer.joins(:brewery).order(order)
                          .where(brewerydb_breweries: { location_type: %w[micro macro] })
                          .where('icon != ?', '')
+                         .where(available_id: [1, 4])
     return beers if ratings.blank?
     beers.where('brewerydb_beers.external_id NOT IN (?)', ratings.map(&:beer_external_id))
   end
