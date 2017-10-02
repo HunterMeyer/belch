@@ -1,5 +1,7 @@
 <h2 style="margin-bottom:0;"><%= @trainer.identifier %></h2>
-<h6><span class="js-rating-count" data-bind="text: ratingCount" data-init-value="<%= @trainer.ratings.count %>"></span> Ratings</h6>
+<h6><span class="js-rating-count" data-bind="text: ratingCount" data-init-value="<%= @ratings %>"></span> Ratings</h6>
+
+<%= render 'intro_modal' if @ratings.zero? %>
 
 <section class="columns" style="height: 500px;">
   <div class="column col-12 text-center centered">

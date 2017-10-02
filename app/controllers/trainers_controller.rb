@@ -2,7 +2,7 @@ class TrainersController < ApplicationController
   BEERS_PER_PAGE = 50
 
   def show
-    current_trainer
+    @ratings = current_trainer.ratings.count
   end
 
   def new
