@@ -3,7 +3,8 @@ class Trainer < ApplicationRecord
   has_many  :ratings, class_name: TrainerBeerRating.name
 
   def unrated_beers
-    order = 'brewerydb_breweries.location_type, brewerydb_breweries.name'
+    order = 'brewerydb_breweries.location_type, brewerydb_breweries.name,'
+    order += 'brewerydb_beers.name, brewerydb_beers.external_id'
     beers = BrewerydbBeer.joins(:brewery).order(order)
                          .where(brewerydb_breweries: { location_type: %w[micro macro] })
                          .where('icon != ?', '')

@@ -20,8 +20,7 @@ class TrainersController < ApplicationController
   end
 
   def unrated_beers
-    offset = params[:page].to_i * BEERS_PER_PAGE
-    @beers = current_trainer.unrated_beers.limit(BEERS_PER_PAGE).offset(offset)
+    @beers = current_trainer.unrated_beers.limit(BEERS_PER_PAGE)
                             .select(:external_id, :name, :brewery_name, :icon)
     render json: @beers
   end

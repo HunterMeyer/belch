@@ -1,6 +1,5 @@
 function BeerListViewModel(data) {
   var self = this;
-  self.page         = 0;
   self.currentIndex = 0;
   self.ratingCount  = ko.observable(data.ratingCount);
   self.unratedBeers = ko.observableArray([]);
@@ -14,13 +13,12 @@ function BeerListViewModel(data) {
   }
 
   self.getMoreBeers = function() {
-    url = window.location.pathname + '/unrated_beers?page=' + self.page;
+    url = window.location.pathname + '/unrated_beers';
     return $.get(url, function(moreBeers) {
       if (moreBeers.length > 0) {
         for(i = 0; i < moreBeers.length; i++) {
           self.unratedBeers.push(new BeerItem(moreBeers[i]));
         }
-        self.page += 1;
       }
     });
   }
