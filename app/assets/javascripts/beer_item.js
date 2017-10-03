@@ -4,6 +4,7 @@ function BeerItem(data) {
   self.name        = ko.observable(data.name);
   self.breweryName = ko.observable(data.brewery_name);
   self.icon        = ko.observable(data.icon);
+  self.category    = ko.observable(data.category_root_name);
   self.visible     = ko.observable(false);
   self.cssClass    = ko.observable();
 

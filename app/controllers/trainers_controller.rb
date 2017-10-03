@@ -22,7 +22,7 @@ class TrainersController < ApplicationController
 
   def unrated_beers
     @beers = current_trainer.unrated_beers.limit(BEERS_PER_PAGE)
-                            .select(:external_id, :name, :brewery_name, :icon)
+                            .select(:external_id, :name, :brewery_name, :icon, :category_root_name)
     render json: @beers
   end
 

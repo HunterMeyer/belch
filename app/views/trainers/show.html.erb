@@ -12,8 +12,13 @@
             <img class="img-responsive" data-bind="attr: { src: icon }">
           </div>
           <div class="card-header">
-            <div class="card-title text-ellipsis" data-bind="text: name"></div>
-            <div class="card-subtitle" data-bind="text: breweryName"></div>
+            <span class="text-left">
+              <div class="card-title text-ellipsis" data-bind="text: name"></div>
+              <span data-bind="if: category">
+                <span class="label label-rounded float-right" data-bind="text: category"></span>
+              </span>
+              <div class="card-subtitle" data-bind="text: breweryName"></div>
+            </span>
           </div>
         </div>
       </span>
