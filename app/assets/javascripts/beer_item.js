@@ -9,8 +9,8 @@ function BeerItem(data) {
   self.cssClass    = ko.observable();
 
   self.rate = function(rating) {
-    url = window.location.pathname + '/rate_beer';
-    $.post(url, { beer_external_id: self.externalId(), rating: rating });
+    url = window.location.pathname + '/beers/' + self.externalId() + '/rate';
+    $.post(url, { rating: rating });
     self.animate(self.animationForRating(rating));
   }
 

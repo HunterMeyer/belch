@@ -11,7 +11,11 @@ class Trainer < ApplicationRecord
                          .where(brewerydb_breweries: { location_type: %w[micro macro] })
                          .where('icon != ?', '')
                          .where(available_id: [1, 4])
-    return beers if ratings.blank?
+    return beers unless ratings.exists?
     beers.where('brewerydb_beers.external_id NOT IN (?)', ratings.map(&:beer_external_id))
+  end
+
+  def rated_beers
+    BrewerydbBeer.where(external_id: ratings.map(&:beer_external_id))
   end
 end

@@ -6,7 +6,7 @@
 <section class="columns" style="height: 500px;">
   <div class="column col-12 text-center centered">
     <span data-bind="visible: !paused()">
-      <span data-bind="foreach: unratedBeers">
+      <span data-bind="foreach: beers">
         <div class="card beer-item bordered" data-bind="css: cssClass, visible: visible">
           <div class="card-image">
             <img class="img-responsive" data-bind="attr: { src: icon }">
@@ -41,7 +41,7 @@
 
 <script>
   var ratingCount = $('.js-rating-count').data('init-value');
-  var vm = new BeerListViewModel({ ratingCount: ratingCount }).init();
+  var vm = new BeerListViewModel({ ratingCount: ratingCount, status: 'unrated' }).init();
   ko.applyBindings(vm);
   document.addEventListener('keydown', function(event) {
     switch (event.which) {
