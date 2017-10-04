@@ -57,4 +57,10 @@
         break;
     }
   });
+
+  (function scrollToBottom() {
+    setTimeout(function() { // ensure everything has loaded
+      window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+    }, 200);
+  })();
 </script>
